@@ -126,4 +126,5 @@ html { scroll-behavior: smooth; }
   .avoid-break { break-inside: avoid; page-break-inside: avoid; }
   .print-card { background: #fff !important; border: 0 !important; color: #000 !important; box-shadow: none !important; }
   .print-muted { color: #111 !important; }
+  .print-no-border, .print-no-border * { border: 0 !important; }
 }
