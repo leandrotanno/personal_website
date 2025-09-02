@@ -87,7 +87,7 @@ export default function DashboardViz() {
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
                 <XAxis dataKey="feature" stroke="#c4b5fd" fontSize={9} />
                 <YAxis stroke="#c4b5fd" fontSize={9} />
-                <RTooltip contentStyle={tooltipStyle} />
+                <RTooltip cursor={{ fill: 'transparent', stroke: 'transparent' }} contentStyle={tooltipStyle} />
                 <Bar dataKey="importance" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -106,7 +106,7 @@ export default function DashboardViz() {
                   ))}
                 </Pie>
                 <Legend wrapperStyle={{ fontSize: "9px" }} />
-                <RTooltip contentStyle={tooltipStyle} />
+                <RTooltip cursor={{ fill: 'transparent', stroke: 'transparent' }} contentStyle={tooltipStyle} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -121,7 +121,7 @@ export default function DashboardViz() {
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
                 <XAxis dataKey="pclass" stroke="#c4b5fd" fontSize={9} />
                 <YAxis stroke="#c4b5fd" fontSize={9} />
-                <RTooltip contentStyle={tooltipStyle} />
+                <RTooltip cursor={{ fill: 'transparent', stroke: 'transparent' }} contentStyle={tooltipStyle} />
                 <Bar dataKey="survived" fill="#34d399" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -137,7 +137,7 @@ export default function DashboardViz() {
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
                 <XAxis dataKey="bucket" stroke="#c4b5fd" fontSize={9} />
                 <YAxis stroke="#c4b5fd" fontSize={9} />
-                <RTooltip contentStyle={tooltipStyle} />
+                <RTooltip cursor={{ fill: 'transparent', stroke: 'transparent' }} contentStyle={tooltipStyle} />
                 <Bar dataKey="count" fill="#60a5fa" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -156,7 +156,7 @@ export default function DashboardViz() {
                   ))}
                 </Pie>
                 <Legend wrapperStyle={{ fontSize: "9px" }} />
-                <RTooltip contentStyle={tooltipStyle} />
+                <RTooltip cursor={{ fill: 'transparent', stroke: 'transparent' }} contentStyle={tooltipStyle} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -177,7 +177,7 @@ export default function DashboardViz() {
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
                 <XAxis dataKey="range" stroke="#c4b5fd" fontSize={9} />
                 <YAxis stroke="#c4b5fd" fontSize={9} />
-                <RTooltip contentStyle={tooltipStyle} />
+                <RTooltip cursor={{ fill: 'transparent', stroke: 'transparent' }} contentStyle={tooltipStyle} />
                 <Area type="monotone" dataKey="count" stroke="#f59e0b" fill="url(#fareFill)" />
               </AreaChart>
             </ResponsiveContainer>
