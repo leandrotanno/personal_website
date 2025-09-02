@@ -65,8 +65,7 @@ export type TerminalCommand = { command: string; steps: string[] };
 
 export const terminalCommands: TerminalCommand[] = [
   {
-    command:
-      "python -m pip install pandas scikit-learn matplotlib seaborn",
+    command: "python -m pip install pandas scikit-learn matplotlib seaborn",
     steps: [
       "Collecting pandas",
       "Collecting scikit-learn",
@@ -77,21 +76,20 @@ export const terminalCommands: TerminalCommand[] = [
     ],
   },
   {
-    command: "python data_analysis.py",
+    command: "python titanic_train.py",
     steps: [
-      "Loading dataset from /data/customer_behavior.csv",
-      "Dataset shape: (15847, 23)",
-      "Checking for missing values...",
-      "Found 127 missing values in age column",
-      "Applying data cleaning transformations...",
-      "Creating feature engineering pipeline...",
-      "Encoding categorical variables: gender, region, subscription_type",
-      "Splitting data: 70% train, 15% validation, 15% test",
-      "Training Random Forest model...",
-      "Cross-validation score: 0.847 (+/- 0.023)",
-      "Model saved to /models/customer_churn_rf_v2.pkl",
-      "Generating prediction report...",
-      "Analysis complete. Check /output/analysis_report.html",
+      "Loading Titanic dataset from seaborn",
+      "Dataset shape: (891, 15)",
+      "Checking missing values...",
+      "Missing: age=177, cabin=687, embarked=2",
+      "Building preprocessing: impute(age->median), one-hot(sex, embarked), scale(numeric)",
+      "Splitting data: 80% train, 20% test (stratified by survived)",
+      "Training LogisticRegression (liblinear)...",
+      "5-fold cross-val accuracy: 0.782 (+/- 0.024)",
+      "Test Accuracy: 0.789 | ROC AUC: 0.84",
+      "Top features: sex_male, pclass, fare, age",
+      "Saving model to /models/titanic_lr.pkl",
+      "Generating evaluation report at /output/titanic_report.html",
     ],
   },
   {
@@ -106,34 +104,12 @@ export const terminalCommands: TerminalCommand[] = [
     ],
   },
   {
-    command:
-      "git add . && git commit -m \"feat: add customer segmentation analysis\"",
+    command: "git add . && git commit -m \"feat: titanic: add LR pipeline, report and model\"",
     steps: [
-      "warning: LF will be replaced by CRLF in data/processed/customer_segments.csv.",
-      "The file will have its original line endings in your working directory",
-      "[main f4a7d2b] feat: add customer segmentation analysis",
-      "8 files changed, 247 insertions(+), 12 deletions(-)",
-      "create mode 100644 notebooks/customer_segmentation.ipynb",
-      "create mode 100644 src/models/segmentation_pipeline.py",
-    ],
-  },
-  {
-    command:
-      "docker build -t ml-api:latest . && docker run -p 5000:5000 ml-api",
-    steps: [
-      "Sending build context to Docker daemon  15.36MB",
-      "Step 1/8 : FROM python:3.11-slim",
-      "Step 2/8 : WORKDIR /app",
-      "Step 3/8 : COPY requirements.txt .",
-      "Step 4/8 : RUN pip install --no-cache-dir -r requirements.txt",
-      "Step 5/8 : COPY . .",
-      "Step 6/8 : EXPOSE 5000",
-      "Step 7/8 : CMD [\"python\", \"app.py\"]",
-      "Successfully built 4c8f9d2a1e7b",
-      "Successfully tagged ml-api:latest",
-      "* Running on http://0.0.0.0:5000",
-      "* Debug mode: off",
-      "Model API ready to receive predictions",
+      "[main 8a3c1f2] feat: titanic: add LR pipeline, report and model",
+      "6 files changed, 312 insertions(+), 18 deletions(-)",
+      "create mode 100644 notebooks/titanic_analysis.ipynb",
+      "create mode 100644 src/models/titanic_pipeline.py",
     ],
   },
 ];
