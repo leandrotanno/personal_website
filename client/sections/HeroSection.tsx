@@ -19,6 +19,7 @@ function useTyping(text: string, speed = 45) {
 export default function HeroSection() {
   const typed = useTyping("Leandro Tanno", 60);
   const [showViz, setShowViz] = useState(false);
+  const singleScript = [terminalCommands[1]];
 
   return (
     <section>
@@ -40,9 +41,9 @@ export default function HeroSection() {
       <div className="grid items-start gap-6 md:grid-cols-12">
         <div className="md:col-span-5">
           <Terminal
-            commands={terminalCommands}
+            commands={singleScript}
             config={terminalConfig}
-            onComplete={() => setTimeout(() => setShowViz(true), 5500)}
+            onComplete={() => setTimeout(() => setShowViz(true), 900)}
           />
         </div>
 
