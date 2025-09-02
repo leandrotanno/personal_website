@@ -42,7 +42,7 @@ export default function HeroSection() {
           <Terminal
             commands={terminalCommands}
             config={terminalConfig}
-            onComplete={() => setShowViz(true)}
+            onComplete={() => setTimeout(() => setShowViz(true), 350)}
           />
         </div>
 
