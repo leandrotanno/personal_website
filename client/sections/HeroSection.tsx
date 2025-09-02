@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Terminal } from "@/components/ui/terminal";
 import { profileData, terminalCommands, terminalConfig } from "@/utils/constants";
+import DashboardViz from "@/components/DashboardViz";
 
 function useTyping(text: string, speed = 45) {
   const [out, setOut] = useState("");
@@ -17,8 +18,9 @@ function useTyping(text: string, speed = 45) {
 
 export default function HeroSection() {
   const typed = useTyping("Leandro Tanno", 60);
+  const [showViz, setShowViz] = useState(false);
   return (
-    <section className="grid items-center gap-8 md:grid-cols-2">
+    <section className="grid items-start gap-8 md:grid-cols-2">
       <div>
         <h1 className="bg-gradient-to-r from-violet-400 via-violet-300 to-emerald-300 bg-clip-text text-5xl font-extrabold text-transparent sm:text-6xl">
           {typed}
@@ -32,7 +34,12 @@ export default function HeroSection() {
         </div>
       </div>
       <div>
-        <Terminal commands={terminalCommands} config={terminalConfig} />
+        <Terminal commands={terminalCommands} config={terminalConfig} onComplete={() => setShowViz(true)} />
+        {showViz && (
+          <div className="mt-4 animate-in fade-in-0 duration-500">
+            <DashboardViz />
+          </div>
+        )}
       </div>
     </section>
   );
