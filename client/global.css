@@ -121,5 +121,9 @@ html { scroll-behavior: smooth; }
   .no-print { display: none !important; }
   @page { margin: 0.5in; size: A4; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  body { background: #fff !important; color: #000 !important; }
   .cv-container { max-width: none; font-size: 12px; line-height: 1.4; }
+  .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+  .print-card { background: #fff !important; border-color: #e5e7eb !important; color: #000 !important; box-shadow: none !important; }
+  .print-muted { color: #111 !important; }
 }
