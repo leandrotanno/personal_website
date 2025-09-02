@@ -14,30 +14,32 @@ export default function Resume() {
           Imprimir / PDF
         </button>
       </div>
-      <div className="cv-container grid gap-6 md:grid-cols-[280px_1fr]">
-        <aside className="space-y-6 rounded-xl border border-violet-700/30 bg-violet-900/10 p-5">
-          <div className="flex flex-col items-center text-center">
-            <div className="size-24 rounded-full border border-violet-700/40 bg-gradient-to-br from-violet-700/40 to-emerald-600/30" />
-            <h2 className="mt-3 text-lg font-semibold text-violet-100">{profileData.name}</h2>
-            <p className="text-sm text-violet-200/80">{profileData.title}</p>
+
+      <div className="cv-container grid gap-6 md:grid-cols-[280px_1fr] print:grid-cols-1">
+        {/* Sidebar */}
+        <aside className="space-y-6 rounded-xl border border-violet-700/30 bg-violet-900/10 p-5 print-card">
+          <div className="flex flex-col items-center text-center avoid-break">
+            <div className="size-24 rounded-full border border-violet-700/40 bg-gradient-to-br from-violet-700/40 to-emerald-600/30 print-card" />
+            <h2 className="mt-3 text-lg font-semibold text-violet-100 print-muted">{profileData.name}</h2>
+            <p className="text-sm text-violet-200/80 print-muted">{profileData.title}</p>
           </div>
-          <div>
-            <h3 className="mb-2 text-sm font-semibold text-violet-200">Contato</h3>
-            <div className="space-y-1 text-sm text-violet-100/85">
+          <div className="avoid-break">
+            <h3 className="mb-2 text-sm font-semibold text-violet-200 print-muted">Contato</h3>
+            <div className="space-y-1 text-sm text-violet-100/85 print-muted">
               <div>{profileData.location}</div>
               <div>
-                <a className="text-blue-300 hover:text-blue-200" href={`mailto:${profileData.email}`}>{profileData.email}</a>
+                <a className="text-blue-300 hover:text-blue-500 print-muted" href={`mailto:${profileData.email}`}>{profileData.email}</a>
               </div>
             </div>
           </div>
-          <div>
-            <h3 className="mb-2 text-sm font-semibold text-violet-200">Skills Técnicas</h3>
+          <div className="avoid-break">
+            <h3 className="mb-2 text-sm font-semibold text-violet-200 print-muted">Skills Técnicas</h3>
             <div className="space-y-3">
               {skills.map((s) => (
-                <div key={s.name}>
+                <div key={s.name} className="avoid-break">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-violet-100/85">{s.name}</span>
-                    <span className="font-mono text-emerald-400">{s.level}%</span>
+                    <span className="text-violet-100/85 print-muted">{s.name}</span>
+                    <span className="font-mono text-emerald-400 print-muted">{s.level}%</span>
                   </div>
                   <ProgressBar value={s.level} />
                 </div>
@@ -45,20 +47,23 @@ export default function Resume() {
             </div>
           </div>
         </aside>
+
+        {/* Main */}
         <main className="space-y-6">
-          <section>
-            <h3 className="mb-2 text-lg font-semibold text-violet-200">Sobre</h3>
-            <p className="text-violet-100/85">{profileData.bio}</p>
+          <section className="avoid-break">
+            <h3 className="mb-2 text-lg font-semibold text-violet-200 print-muted">Sobre</h3>
+            <p className="text-violet-100/85 print-muted">{profileData.bio}</p>
           </section>
-          <section>
-            <h3 className="mb-3 text-lg font-semibold text-violet-200">Experiência</h3>
+
+          <section className="avoid-break">
+            <h3 className="mb-3 text-lg font-semibold text-violet-200 print-muted">Experiência</h3>
             <div className="space-y-4">
-              <div className="rounded-lg border border-violet-700/30 bg-violet-900/10 p-4">
+              <div className="rounded-lg border border-violet-700/30 bg-violet-900/10 p-4 print-card">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="font-semibold text-violet-100">Analytics Engineer</div>
-                  <div className="text-xs text-violet-200/70">2019 — Presente</div>
+                  <div className="font-semibold text-violet-100 print-muted">Analytics Engineer</div>
+                  <div className="text-xs text-violet-200/70 print-muted">2019 — Presente</div>
                 </div>
-                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-violet-100/85">
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-violet-100/85 print-muted">
                   <li>Projetos de web analytics end-to-end e automações de dados</li>
                   <li>Criação de pipelines de dados e dashboards com insights</li>
                   <li>Modelagem preditiva para retenção e crescimento</li>
@@ -66,15 +71,17 @@ export default function Resume() {
               </div>
             </div>
           </section>
-          <section>
-            <h3 className="mb-3 text-lg font-semibold text-violet-200">Educação</h3>
-            <div className="rounded-lg border border-violet-700/30 bg-violet-900/10 p-4 text-sm text-violet-100/85">
+
+          <section className="avoid-break">
+            <h3 className="mb-3 text-lg font-semibold text-violet-200 print-muted">Educação</h3>
+            <div className="rounded-lg border border-violet-700/30 bg-violet-900/10 p-4 text-sm text-violet-100/85 print-card print-muted">
               Graduação e cursos focados em dados, ML e engenharia de software
             </div>
           </section>
-          <section>
-            <h3 className="mb-3 text-lg font-semibold text-violet-200">Projetos</h3>
-            <div className="rounded-lg border border-violet-700/30 bg-violet-900/10 p-4 text-sm text-violet-100/85">
+
+          <section className="avoid-break">
+            <h3 className="mb-3 text-lg font-semibold text-violet-200 print-muted">Projetos</h3>
+            <div className="rounded-lg border border-violet-700/30 bg-violet-900/10 p-4 text-sm text-violet-100/85 print-card print-muted">
               Detalhes adicionais dos projetos em destaque disponíveis sob demanda
             </div>
           </section>
