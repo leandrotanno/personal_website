@@ -1,0 +1,63 @@
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip as RTooltip,
+  BarChart,
+  Bar,
+  Legend,
+} from "recharts";
+
+const cvData = [
+  { fold: 1, score: 0.82 },
+  { fold: 2, score: 0.86 },
+  { fold: 3, score: 0.85 },
+  { fold: 4, score: 0.84 },
+  { fold: 5, score: 0.87 },
+];
+
+const featData = [
+  { feature: "age", importance: 0.29 },
+  { feature: "region", importance: 0.18 },
+  { feature: "subscription", importance: 0.22 },
+  { feature: "activity", importance: 0.31 },
+];
+
+export default function DashboardViz() {
+  return (
+    <div className="mt-6 grid gap-6 md:grid-cols-2">
+      <div className="rounded-xl border border-violet-700/30 bg-black/20 p-4">
+        <div className="mb-2 text-sm font-semibold text-violet-200">Cross-validation score</div>
+        <div className="h-48">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={cvData} margin={{ left: -20 }}>
+              <CartesianGrid stroke="rgba(255,255,255,0.06)" />
+              <XAxis dataKey="fold" stroke="#c4b5fd" />
+              <YAxis domain={[0.7, 0.95]} stroke="#c4b5fd" />
+              <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff" }} />
+              <Line type="monotone" dataKey="score" stroke="#a78bfa" strokeWidth={2} dot={{ r: 3, stroke: "#34d399", strokeWidth: 2 }} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+      <div className="rounded-xl border border-violet-700/30 bg-black/20 p-4">
+        <div className="mb-2 text-sm font-semibold text-violet-200">Feature importance</div>
+        <div className="h-48">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={featData} margin={{ left: -20 }}>
+              <CartesianGrid stroke="rgba(255,255,255,0.06)" />
+              <XAxis dataKey="feature" stroke="#c4b5fd" />
+              <YAxis stroke="#c4b5fd" />
+              <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff" }} />
+              <Legend />
+              <Bar dataKey="importance" fill="#8b5cf6" radius={[6, 6, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+    </div>
+  );
+}
