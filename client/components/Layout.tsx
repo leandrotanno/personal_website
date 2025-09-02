@@ -23,7 +23,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-violet-50 via-gray-50 to-white text-slate-900 dark:from-violet-950 dark:via-gray-900 dark:to-black dark:text-white">
-      <div className="pointer-events-none fixed inset-0 -z-10 opacity-20 [background:radial-gradient(circle_at_center,rgba(109,40,217,0.25),transparent_45%),repeating-linear-gradient(0deg,rgba(168,85,247,0.15)_0px,rgba(168,85,247,0.15)_1px,transparent_1px,transparent_32px),repeating-linear-gradient(90deg,rgba(168,85,247,0.1)_0px,rgba(168,85,247,0.1)_1px,transparent_1px,transparent_32px)]" />
+      <div className="pointer-events-none fixed inset-0 -z-10 opacity-20 no-print [background:radial-gradient(circle_at_center,rgba(109,40,217,0.25),transparent_45%),repeating-linear-gradient(0deg,rgba(168,85,247,0.15)_0px,rgba(168,85,247,0.15)_1px,transparent_1px,transparent_32px),repeating-linear-gradient(90deg,rgba(168,85,247,0.1)_0px,rgba(168,85,247,0.1)_1px,transparent_1px,transparent_32px)]" />
 
       <header className="fixed inset-x-0 top-0 z-30 border-b border-violet-300/40 bg-white/60 backdrop-blur-md dark:border-violet-700/30 dark:bg-black/40 no-print">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
@@ -61,7 +61,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <main className="mx-auto max-w-6xl px-4 pt-24 pb-16">{children}</main>
 
-      <footer className="border-t border-violet-300/40 bg-white/50 py-6 dark:border-violet-700/30 dark:bg-black/30">
+      <footer className="border-t border-violet-300/40 bg-white/50 py-6 dark:border-violet-700/30 dark:bg-black/30 no-print">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4">
           <span className="text-xs text-violet-200/80">© {new Date().getFullYear()} tanno.online</span>
           <SocialButtons />
