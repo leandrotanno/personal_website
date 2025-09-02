@@ -115,12 +115,12 @@ export const terminalCommands: TerminalCommand[] = [
 ];
 
 export const terminalConfig = {
-  stepDelay: 260,
-  stepVariation: 160,
-  commandPause: 900,
-  startDelay: 250,
-  terminalHeight: "320px",
-  maxLines: 15,
+  stepDelay: 120,
+  stepVariation: 80,
+  commandPause: 400,
+  startDelay: 100,
+  terminalHeight: "400px",
+  maxLines: 18,
 };
 
 export const sectionConfig = {
