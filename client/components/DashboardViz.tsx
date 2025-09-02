@@ -69,17 +69,17 @@ const COLORS = ["#a78bfa", "#34d399", "#60a5fa", "#f59e0b", "#ef4444", "#22d3ee"
 
 export default function DashboardViz() {
   return (
-    <section aria-label="Dashboard Titanic" className="rounded-2xl border border-violet-700/30 bg-black/20 p-4">
+    <section aria-label="Dashboard Titanic" className="rounded-2xl border border-violet-700/30 bg-black/20 p-5">
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-violet-200">Titanic — quick insights</h3>
         <span className="text-[10px] text-violet-300/70">dados aproximados para demonstração</span>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {/* 1. Feature Importance (Bar) */}
         <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">Importância de features</div>
-          <div className="h-28">
+          <div className="h-32">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={featData} margin={{ left: -18, top: 4, right: 4, bottom: 0 }}>
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
@@ -95,7 +95,7 @@ export default function DashboardViz() {
         {/* 2. Survival by sex (Pie) */}
         <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">Sobreviventes por sexo</div>
-          <div className="h-28">
+          <div className="h-32">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie data={survivalBySex} dataKey="value" nameKey="name" innerRadius={16} outerRadius={42} paddingAngle={3}>
@@ -113,7 +113,7 @@ export default function DashboardViz() {
         {/* 3. Survival by class (Bar) */}
         <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">Sobreviventes por classe</div>
-          <div className="h-28">
+          <div className="h-32">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={survivalByClass} margin={{ left: -18, top: 4, right: 4, bottom: 0 }}>
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
@@ -129,7 +129,7 @@ export default function DashboardViz() {
         {/* 4. Age distribution (Bar) */}
         <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">Distribuição por idade</div>
-          <div className="h-28">
+          <div className="h-32">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={ageDistribution} margin={{ left: -18, top: 4, right: 4, bottom: 0 }}>
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
@@ -145,7 +145,7 @@ export default function DashboardViz() {
         {/* 5. Survival share by embarked (Pie) */}
         <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">Sobreviventes por porto de embarque</div>
-          <div className="h-28">
+          <div className="h-32">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie data={embarkedSurvivalShare} dataKey="survived" nameKey="port" innerRadius={16} outerRadius={42} paddingAngle={2}>
@@ -163,7 +163,7 @@ export default function DashboardViz() {
         {/* 6. Fare distribution (Area) */}
         <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">Distribuição de tarifas</div>
-          <div className="h-28">
+          <div className="h-32">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={fareHistogram} margin={{ left: -18, top: 4, right: 4, bottom: 0 }}>
                 <defs>
