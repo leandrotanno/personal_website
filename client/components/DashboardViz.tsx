@@ -30,7 +30,7 @@ export default function DashboardViz() {
   return (
     <div className="mt-6 grid gap-6 md:grid-cols-2">
       <div className="rounded-xl border border-violet-700/30 bg-black/20 p-4">
-        <div className="mb-2 text-sm font-semibold text-violet-200">Cross-validation score</div>
+        <div className="mb-2 text-sm font-semibold text-violet-200">Titanic - CV Accuracy por fold</div>
         <div className="h-48">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={cvData} margin={{ left: -20 }}>
