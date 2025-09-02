@@ -119,7 +119,7 @@ export const terminalConfig = {
   stepVariation: 35,
   commandPause: 240,
   startDelay: 60,
-  terminalHeight: "300px",
+  terminalHeight: "380px",
   maxLines: 18,
 };
 
