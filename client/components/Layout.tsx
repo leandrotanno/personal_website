@@ -2,6 +2,7 @@ import { Moon, Sun } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SocialButtons from "@/components/SocialButtons";
+import { LogoText } from "@/components/ui/logo";
 
 function useTheme() {
   const [theme, setTheme] = useState<string>(() =>
