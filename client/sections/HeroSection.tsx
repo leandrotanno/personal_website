@@ -32,12 +32,19 @@ export default function HeroSection() {
             {profileData.availability}
           </span>
         </div>
+        <div className="mt-6">
+          <Terminal commands={terminalCommands} config={terminalConfig} onComplete={() => setShowViz(true)} />
+        </div>
       </div>
       <div>
-        <Terminal commands={terminalCommands} config={terminalConfig} onComplete={() => setShowViz(true)} />
-        {showViz && (
-          <div className="mt-4 animate-in fade-in-0 duration-500">
+        {showViz ? (
+          <div className="animate-in fade-in-0 duration-500">
             <DashboardViz />
+          </div>
+        ) : (
+          <div className="rounded-xl border border-violet-700/30 bg-violet-900/10 p-6 text-sm text-violet-200/80">
+            Aguardando resultados do pipeline Titanic...
+            <div className="mt-3 h-48 animate-pulse rounded-lg bg-violet-800/20" />
           </div>
         )}
       </div>
