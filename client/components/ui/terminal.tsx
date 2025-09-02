@@ -40,6 +40,7 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
     return seq;
   }, [commands]);
 
+  const devRunRef = useRef(0);
   useEffect(() => {
     let mounted = true;
     let idx = 0;
@@ -47,6 +48,16 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
     let doneCalled = false;
     let raf1: number | null = null;
     let raf2: number | null = null;
+
+    // In React 18 StrictMode (DEV), effects run twice. Skip the first pass and start on the second.
+    if (import.meta.env.DEV) {
+      if (devRunRef.current === 0) {
+        devRunRef.current = 1;
+        return () => {};
+      }
+    }
+
+    setLines([]);
 
     const scheduleNext = (delay: number) => {
       timers.push(
