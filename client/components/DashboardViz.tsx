@@ -1,7 +1,5 @@
 import {
   ResponsiveContainer,
-  LineChart,
-  Line,
   CartesianGrid,
   XAxis,
   YAxis,
@@ -12,16 +10,13 @@ import {
   PieChart,
   Pie,
   Cell,
+  LineChart,
+  Line,
+  AreaChart,
+  Area,
 } from "recharts";
 
-const cvData = [
-  { fold: 1, score: 0.78 },
-  { fold: 2, score: 0.80 },
-  { fold: 3, score: 0.77 },
-  { fold: 4, score: 0.79 },
-  { fold: 5, score: 0.78 },
-];
-
+// Feature importance stays as first card
 const featData = [
   { feature: "sex_male", importance: 0.36 },
   { feature: "pclass", importance: 0.28 },
@@ -29,135 +24,166 @@ const featData = [
   { feature: "age", importance: 0.15 },
 ];
 
-// Aproximações realistas do Titanic
+// Storytelling dataset approximations (Titanic)
 const survivalBySex = [
   { name: "Mulheres", value: 233 },
   { name: "Homens", value: 109 },
 ];
+
 const survivalByClass = [
   { pclass: "1ª", survived: 136 },
   { pclass: "2ª", survived: 87 },
   { pclass: "3ª", survived: 119 },
 ];
+
 const ageDistribution = [
-  { age: "0-20", count: 139 },
-  { age: "21-40", count: 342 },
-  { age: "41-60", count: 285 },
-  { age: "60+", count: 125 },
+  { bucket: "0-10", count: 64 },
+  { bucket: "11-20", count: 145 },
+  { bucket: "21-30", count: 207 },
+  { bucket: "31-40", count: 135 },
+  { bucket: "41-60", count: 103 },
+  { bucket: "60+", count: 37 },
 ];
-const modelMetrics = [
-  { metric: "Accuracy", value: 0.789 },
-  { metric: "Precision", value: 0.792 },
-  { metric: "Recall", value: 0.745 },
-  { metric: "F1-Score", value: 0.768 },
+
+const embarkedSurvivalShare = [
+  { port: "C", survived: 93 },
+  { port: "Q", survived: 30 },
+  { port: "S", survived: 219 },
 ];
-const COLORS = ["#a78bfa", "#34d399", "#60a5fa", "#f59e0b"];
 
-interface DashboardVizProps {
-  showTopCharts?: boolean;
-  showBottomCharts?: boolean;
-}
+const fareHistogram = [
+  { range: "0-15", count: 280 },
+  { range: "15-30", count: 250 },
+  { range: "30-60", count: 190 },
+  { range: "60+", count: 171 },
+];
 
-export default function DashboardViz({ showTopCharts, showBottomCharts }: DashboardVizProps) {
-  if (showTopCharts) {
-    return (
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-xl border border-violet-700/30 bg-black/20 p-3">
-          <div className="mb-1 text-xs font-semibold text-violet-200">CV Accuracy</div>
-          <div className="h-32">
+const survivalRateByAge = [
+  { bucket: "0-10", rate: 0.59 },
+  { bucket: "11-20", rate: 0.44 },
+  { bucket: "21-30", rate: 0.41 },
+  { bucket: "31-40", rate: 0.47 },
+  { bucket: "41-60", rate: 0.39 },
+  { bucket: "60+", rate: 0.25 },
+];
+
+const COLORS = ["#a78bfa", "#34d399", "#60a5fa", "#f59e0b", "#ef4444", "#22d3ee"];
+
+export default function DashboardViz() {
+  return (
+    <section aria-label="Dashboard Titanic" className="rounded-2xl border border-violet-700/30 bg-black/20 p-4">
+      <div className="mb-3 flex items-center justify-between">
+        <h3 className="text-sm font-semibold text-violet-200">Titanic — quick insights</h3>
+        <span className="text-[10px] text-violet-300/70">dados aproximados para demonstração</span>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {/* 1. Feature Importance (Bar) */}
+        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+          <div className="mb-1 text-[11px] font-semibold text-violet-200">Importância de features</div>
+          <div className="h-28">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={cvData} margin={{ left: -20, top: 5, right: 5, bottom: 5 }}>
+              <BarChart data={featData} margin={{ left: -18, top: 4, right: 4, bottom: 0 }}>
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
-                <XAxis dataKey="fold" stroke="#c4b5fd" fontSize={10} />
-                <YAxis domain={[0.7, 0.85]} stroke="#c4b5fd" fontSize={10} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "12px" }} />
-                <Line type="monotone" dataKey="score" stroke="#a78bfa" strokeWidth={2} dot={{ r: 2 }} />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-        <div className="rounded-xl border border-violet-700/30 bg-black/20 p-3">
-          <div className="mb-1 text-xs font-semibold text-violet-200">Feature Importance</div>
-          <div className="h-32">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={featData} margin={{ left: -20, top: 5, right: 5, bottom: 5 }}>
-                <CartesianGrid stroke="rgba(255,255,255,0.06)" />
-                <XAxis dataKey="feature" stroke="#c4b5fd" fontSize={10} />
-                <YAxis stroke="#c4b5fd" fontSize={10} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "12px" }} />
+                <XAxis dataKey="feature" stroke="#c4b5fd" fontSize={9} />
+                <YAxis stroke="#c4b5fd" fontSize={9} />
+                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
                 <Bar dataKey="importance" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
-      </div>
-    );
-  }
 
-  if (showBottomCharts) {
-    return (
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
-        <div className="rounded-xl border border-violet-700/30 bg-black/20 p-3">
-          <div className="mb-1 text-xs font-semibold text-violet-200">Sobreviventes por sexo</div>
-          <div className="h-40">
+        {/* 2. Survival by sex (Pie) */}
+        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+          <div className="mb-1 text-[11px] font-semibold text-violet-200">Sobreviventes por sexo</div>
+          <div className="h-28">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
-                <Pie data={survivalBySex} dataKey="value" nameKey="name" innerRadius={20} outerRadius={50} paddingAngle={3}>
+                <Pie data={survivalBySex} dataKey="value" nameKey="name" innerRadius={16} outerRadius={42} paddingAngle={3}>
                   {survivalBySex.map((_, i) => (
                     <Cell key={i} fill={COLORS[i % COLORS.length]} />
                   ))}
                 </Pie>
-                <Legend wrapperStyle={{ fontSize: "10px" }} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "12px" }} />
+                <Legend wrapperStyle={{ fontSize: "9px" }} />
+                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
               </PieChart>
             </ResponsiveContainer>
           </div>
         </div>
-        <div className="rounded-xl border border-violet-700/30 bg-black/20 p-3">
-          <div className="mb-1 text-xs font-semibold text-violet-200">Sobreviventes por classe</div>
-          <div className="h-40">
+
+        {/* 3. Survival by class (Bar) */}
+        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+          <div className="mb-1 text-[11px] font-semibold text-violet-200">Sobreviventes por classe</div>
+          <div className="h-28">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={survivalByClass} margin={{ left: -20, top: 5, right: 5, bottom: 5 }}>
+              <BarChart data={survivalByClass} margin={{ left: -18, top: 4, right: 4, bottom: 0 }}>
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
-                <XAxis dataKey="pclass" stroke="#c4b5fd" fontSize={10} />
-                <YAxis stroke="#c4b5fd" fontSize={10} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "12px" }} />
+                <XAxis dataKey="pclass" stroke="#c4b5fd" fontSize={9} />
+                <YAxis stroke="#c4b5fd" fontSize={9} />
+                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
                 <Bar dataKey="survived" fill="#34d399" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
-        <div className="rounded-xl border border-violet-700/30 bg-black/20 p-3">
-          <div className="mb-1 text-xs font-semibold text-violet-200">Distribuição por idade</div>
-          <div className="h-40">
+
+        {/* 4. Age distribution (Bar) */}
+        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+          <div className="mb-1 text-[11px] font-semibold text-violet-200">Distribuição por idade</div>
+          <div className="h-28">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={ageDistribution} margin={{ left: -20, top: 5, right: 5, bottom: 5 }}>
+              <BarChart data={ageDistribution} margin={{ left: -18, top: 4, right: 4, bottom: 0 }}>
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
-                <XAxis dataKey="age" stroke="#c4b5fd" fontSize={10} />
-                <YAxis stroke="#c4b5fd" fontSize={10} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "12px" }} />
+                <XAxis dataKey="bucket" stroke="#c4b5fd" fontSize={9} />
+                <YAxis stroke="#c4b5fd" fontSize={9} />
+                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
                 <Bar dataKey="count" fill="#60a5fa" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
-        <div className="rounded-xl border border-violet-700/30 bg-black/20 p-3">
-          <div className="mb-1 text-xs font-semibold text-violet-200">Métricas do modelo</div>
-          <div className="h-40">
+
+        {/* 5. Survival share by embarked (Pie) */}
+        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+          <div className="mb-1 text-[11px] font-semibold text-violet-200">Sobreviventes por porto de embarque</div>
+          <div className="h-28">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={modelMetrics} margin={{ left: -20, top: 5, right: 5, bottom: 5 }}>
+              <PieChart>
+                <Pie data={embarkedSurvivalShare} dataKey="survived" nameKey="port" innerRadius={16} outerRadius={42} paddingAngle={2}>
+                  {embarkedSurvivalShare.map((_, i) => (
+                    <Cell key={i} fill={COLORS[(i + 2) % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Legend wrapperStyle={{ fontSize: "9px" }} />
+                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        {/* 6. Fare distribution (Area) */}
+        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+          <div className="mb-1 text-[11px] font-semibold text-violet-200">Distribuição de tarifas</div>
+          <div className="h-28">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={fareHistogram} margin={{ left: -18, top: 4, right: 4, bottom: 0 }}>
+                <defs>
+                  <linearGradient id="fareFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.55} />
+                    <stop offset="95%" stopColor="#f59e0b" stopOpacity={0.05} />
+                  </linearGradient>
+                </defs>
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
-                <XAxis dataKey="metric" stroke="#c4b5fd" fontSize={10} />
-                <YAxis domain={[0.7, 0.8]} stroke="#c4b5fd" fontSize={10} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "12px" }} />
-                <Bar dataKey="value" fill="#f59e0b" radius={[4, 4, 0, 0]} />
-              </BarChart>
+                <XAxis dataKey="range" stroke="#c4b5fd" fontSize={9} />
+                <YAxis stroke="#c4b5fd" fontSize={9} />
+                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
+                <Area type="monotone" dataKey="count" stroke="#f59e0b" fill="url(#fareFill)" />
+              </AreaChart>
             </ResponsiveContainer>
           </div>
         </div>
       </div>
-    );
-  }
-
-  return null;
+    </section>
+  );
 }
