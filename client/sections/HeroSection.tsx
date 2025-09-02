@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Terminal } from "@/components/ui/terminal";
 import { profileData, terminalCommands, terminalConfig } from "@/utils/constants";
 import DashboardViz from "@/components/DashboardViz";
@@ -19,7 +19,7 @@ function useTyping(text: string, speed = 45) {
 export default function HeroSection() {
   const typed = useTyping("Leandro Tanno", 60);
   const [showViz, setShowViz] = useState(false);
-  const singleScript = [terminalCommands[1]];
+  const singleScript = useMemo(() => [terminalCommands[1]], []);
 
   return (
     <section>
@@ -43,7 +43,7 @@ export default function HeroSection() {
           <Terminal
             commands={singleScript}
             config={terminalConfig}
-            onComplete={() => setTimeout(() => setShowViz(true), 900)}
+            onComplete={() => setTimeout(() => setShowViz(true), 800)}
           />
         </div>
 
