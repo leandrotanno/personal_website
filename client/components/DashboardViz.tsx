@@ -9,6 +9,9 @@ import {
   BarChart,
   Bar,
   Legend,
+  PieChart,
+  Pie,
+  Cell,
 } from "recharts";
 
 const cvData = [
@@ -25,6 +28,18 @@ const featData = [
   { feature: "fare", importance: 0.21 },
   { feature: "age", importance: 0.15 },
 ];
+
+// Aproximações realistas do Titanic
+const survivalBySex = [
+  { name: "Mulheres", value: 233 },
+  { name: "Homens", value: 109 },
+];
+const survivalByClass = [
+  { pclass: "1ª", survived: 136 },
+  { pclass: "2ª", survived: 87 },
+  { pclass: "3ª", survived: 119 },
+];
+const COLORS = ["#a78bfa", "#34d399", "#60a5fa", "#f59e0b"];
 
 export default function DashboardViz() {
   return (
@@ -54,6 +69,38 @@ export default function DashboardViz() {
               <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff" }} />
               <Legend />
               <Bar dataKey="importance" fill="#8b5cf6" radius={[6, 6, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      <div className="rounded-xl border border-violet-700/30 bg-black/20 p-4">
+        <div className="mb-2 text-sm font-semibold text-violet-200">Sobreviventes por sexo</div>
+        <div className="h-48">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie data={survivalBySex} dataKey="value" nameKey="name" innerRadius={32} outerRadius={60} paddingAngle={3}>
+                {survivalBySex.map((_, i) => (
+                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                ))}
+              </Pie>
+              <Legend />
+              <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff" }} />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      <div className="rounded-xl border border-violet-700/30 bg-black/20 p-4">
+        <div className="mb-2 text-sm font-semibold text-violet-200">Sobreviventes por classe</div>
+        <div className="h-48">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={survivalByClass} margin={{ left: -20 }}>
+              <CartesianGrid stroke="rgba(255,255,255,0.06)" />
+              <XAxis dataKey="pclass" stroke="#c4b5fd" />
+              <YAxis stroke="#c4b5fd" />
+              <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff" }} />
+              <Bar dataKey="survived" fill="#34d399" radius={[6, 6, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
