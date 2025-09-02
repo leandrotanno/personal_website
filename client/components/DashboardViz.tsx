@@ -44,7 +44,7 @@ export default function DashboardViz() {
         </div>
       </div>
       <div className="rounded-xl border border-violet-700/30 bg-black/20 p-4">
-        <div className="mb-2 text-sm font-semibold text-violet-200">Feature importance</div>
+        <div className="mb-2 text-sm font-semibold text-violet-200">Titanic - Importância de features</div>
         <div className="h-48">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={featData} margin={{ left: -20 }}>
