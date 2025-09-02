@@ -60,7 +60,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <main className="mx-auto max-w-6xl px-4 pt-24 pb-16">{children}</main>
 
-      <SocialButtons />
+      <footer className="border-t border-violet-300/40 bg-white/50 py-6 dark:border-violet-700/30 dark:bg-black/30">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4">
+          <span className="text-xs text-violet-200/80">© {new Date().getFullYear()} tanno.online</span>
+          <SocialButtons />
+        </div>
+      </footer>
     </div>
   );
 }
