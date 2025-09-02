@@ -32,11 +32,11 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
 
   const flatSequence = useMemo(() => {
     const seq: string[] = [];
-    for (const block of commands) {
+    commands.forEach((block, i) => {
       seq.push(`$ ${block.command}`);
       for (const step of block.steps) seq.push(step);
-      seq.push("\u200b"); // spacer between commands
-    }
+      if (i < commands.length - 1) seq.push("\u200b"); // spacer only between commands
+    });
     return seq;
   }, [commands]);
 
