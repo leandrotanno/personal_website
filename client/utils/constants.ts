@@ -16,12 +16,12 @@ export const metrics = [
 ];
 
 export const skills = [
-  { name: "Python", level: 90, icon: Code, category: "Programming" },
-  { name: "Web Analytics", level: 95, icon: BarChart3, category: "Analytics" },
-  { name: "Machine Learning", level: 75, icon: Brain, category: "AI/ML" },
-  { name: "SQL/Databases", level: 88, icon: Database, category: "Data" },
-  { name: "Data Visualization", level: 85, icon: TrendingUp, category: "Viz" },
-  { name: "Cloud/DevOps", level: 70, icon: Zap, category: "Infrastructure" },
+  { name: "Python", level: 90, icon: Code, category: "Programming", tools: ["Pandas", "Scikit-learn", "NumPy", "Jupyter"] },
+  { name: "Web Analytics", level: 95, icon: BarChart3, category: "Analytics", tools: ["GA4", "GTM", "BigQuery", "Looker Studio"] },
+  { name: "Machine Learning", level: 75, icon: Brain, category: "AI/ML", tools: ["RandomForest", "XGBoost", "Pipelines", "CV"] },
+  { name: "SQL/Databases", level: 88, icon: Database, category: "Data", tools: ["Postgres", "BigQuery", "MySQL", "SQLite"] },
+  { name: "Data Visualization", level: 85, icon: TrendingUp, category: "Viz", tools: ["Matplotlib", "Seaborn", "D3.js", "Recharts"] },
+  { name: "Cloud/DevOps", level: 70, icon: Zap, category: "Infrastructure", tools: ["AWS", "Docker", "CI/CD", "Linux"] },
 ];
 
 export const projects = [
