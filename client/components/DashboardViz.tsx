@@ -44,9 +44,9 @@ const ageDistribution = [
 ];
 
 const embarkedSurvivalShare = [
-  { port: "C", survived: 93 },
-  { port: "Q", survived: 30 },
-  { port: "S", survived: 219 },
+  { port: "Cherbourg", survived: 93 },
+  { port: "Queenstown", survived: 30 },
+  { port: "Southampton", survived: 219 },
 ];
 
 const fareHistogram = [
@@ -67,6 +67,8 @@ const survivalRateByAge = [
 
 const COLORS = ["#a78bfa", "#34d399", "#60a5fa", "#f59e0b", "#ef4444", "#22d3ee"];
 
+const tooltipStyle = { background: "rgba(38, 16, 72, 0.9)", border: "1px solid rgba(139,92,246,.4)", color: "#e9d5ff", fontSize: "11px" } as const;
+
 export default function DashboardViz() {
   return (
     <section aria-label="Dashboard Titanic" className="rounded-2xl border border-violet-700/30 bg-black/20 p-5">
@@ -85,7 +87,7 @@ export default function DashboardViz() {
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
                 <XAxis dataKey="feature" stroke="#c4b5fd" fontSize={9} />
                 <YAxis stroke="#c4b5fd" fontSize={9} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
+                <RTooltip contentStyle={tooltipStyle} />
                 <Bar dataKey="importance" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -104,7 +106,7 @@ export default function DashboardViz() {
                   ))}
                 </Pie>
                 <Legend wrapperStyle={{ fontSize: "9px" }} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
+                <RTooltip contentStyle={tooltipStyle} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -119,7 +121,7 @@ export default function DashboardViz() {
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
                 <XAxis dataKey="pclass" stroke="#c4b5fd" fontSize={9} />
                 <YAxis stroke="#c4b5fd" fontSize={9} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
+                <RTooltip contentStyle={tooltipStyle} />
                 <Bar dataKey="survived" fill="#34d399" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -135,7 +137,7 @@ export default function DashboardViz() {
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
                 <XAxis dataKey="bucket" stroke="#c4b5fd" fontSize={9} />
                 <YAxis stroke="#c4b5fd" fontSize={9} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
+                <RTooltip contentStyle={tooltipStyle} />
                 <Bar dataKey="count" fill="#60a5fa" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -154,7 +156,7 @@ export default function DashboardViz() {
                   ))}
                 </Pie>
                 <Legend wrapperStyle={{ fontSize: "9px" }} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
+                <RTooltip contentStyle={tooltipStyle} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -175,7 +177,7 @@ export default function DashboardViz() {
                 <CartesianGrid stroke="rgba(255,255,255,0.06)" />
                 <XAxis dataKey="range" stroke="#c4b5fd" fontSize={9} />
                 <YAxis stroke="#c4b5fd" fontSize={9} />
-                <RTooltip contentStyle={{ background: "#0b0b0c", border: "1px solid rgba(139,92,246,.3)", color: "#e9d5ff", fontSize: "11px" }} />
+                <RTooltip contentStyle={tooltipStyle} />
                 <Area type="monotone" dataKey="count" stroke="#f59e0b" fill="url(#fareFill)" />
               </AreaChart>
             </ResponsiveContainer>
