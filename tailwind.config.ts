@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", "Helvetica Neue", "Arial", "Apple Color Emoji", "Segoe UI Emoji"],
+        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -64,6 +68,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        float: { from: { transform: "translateY(0px)" }, to: { transform: "translateY(-6px)" } },
         "accordion-down": {
           from: {
             height: "0",
@@ -82,6 +87,7 @@ export default {
         },
       },
       animation: {
+        float: "float 2.5s ease-in-out infinite alternate",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
