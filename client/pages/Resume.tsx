@@ -45,18 +45,18 @@ export default function Resume() {
 
       <article className="mx-auto max-w-3xl rounded-xl border border-blue-200/40 bg-white/5 p-6 backdrop-blur print-card print-no-border">
         {/* Header */}
-        <header className="mb-5 grid gap-4 sm:grid-cols-[120px_1fr_1fr]">
+        <header className="mb-5 grid gap-4 sm:grid-cols-[200px_1fr_1fr]">
           <div className="flex flex-col items-center justify-center">
-            <div className="size-32 rounded-full border border-blue-300/60 bg-gradient-to-br from-blue-200/60 to-emerald-200/40 dark:from-violet-700/40 dark:to-emerald-600/30 print-card" />
+            <div className="size-40 rounded-full border border-blue-300/60 bg-gradient-to-br from-blue-200/60 to-emerald-200/40 dark:from-violet-700/40 dark:to-emerald-600/30 print-card" />
           </div>
-          <div className="rounded-lg border border-blue-300/40 bg-blue-50/30 p-3 print-card">
+          <div className="rounded-lg border border-blue-300/40 bg-blue-50/30 p-2 print-card">
             <div className="text-xs text-slate-600 print-muted">Hello, my name is</div>
-            <div className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white print-muted">{profileData.name}</div>
+            <div className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white print-muted">{profileData.name}</div>
             <p className="mt-1 text-sm text-slate-700/90 dark:text-violet-100/85 print-muted">{profileData.bio}</p>
           </div>
-          <div className="rounded-lg border border-blue-300/40 bg-blue-50/30 p-3 print-card">
+          <div className="rounded-lg border border-blue-300/40 bg-blue-50/30 p-2 print-card">
             <div className="text-xs text-slate-600 print-muted">Currently, I work as a</div>
-            <div className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white print-muted">{profileData.title}</div>
+            <div className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white print-muted">{profileData.title}</div>
             <p className="mt-1 text-sm text-slate-700/90 dark:text-violet-100/85 print-muted">{profileData.location} · {profileData.email}</p>
           </div>
         </header>
