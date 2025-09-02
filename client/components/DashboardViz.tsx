@@ -12,18 +12,18 @@ import {
 } from "recharts";
 
 const cvData = [
-  { fold: 1, score: 0.82 },
-  { fold: 2, score: 0.86 },
-  { fold: 3, score: 0.85 },
-  { fold: 4, score: 0.84 },
-  { fold: 5, score: 0.87 },
+  { fold: 1, score: 0.78 },
+  { fold: 2, score: 0.80 },
+  { fold: 3, score: 0.77 },
+  { fold: 4, score: 0.79 },
+  { fold: 5, score: 0.78 },
 ];
 
 const featData = [
-  { feature: "age", importance: 0.29 },
-  { feature: "region", importance: 0.18 },
-  { feature: "subscription", importance: 0.22 },
-  { feature: "activity", importance: 0.31 },
+  { feature: "sex_male", importance: 0.36 },
+  { feature: "pclass", importance: 0.28 },
+  { feature: "fare", importance: 0.21 },
+  { feature: "age", importance: 0.15 },
 ];
 
 export default function DashboardViz() {
