@@ -27,8 +27,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <header className="fixed inset-x-0 top-0 z-30 border-b border-violet-300/40 bg-white/60 backdrop-blur-md dark:border-violet-700/30 dark:bg-black/40 no-print">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <Link to="/" className="font-mono text-sm text-violet-300">
-            <span className="text-violet-400">$</span> tanno.online
+          <Link to="/" className="transition-opacity hover:opacity-80">
+            <LogoText />
           </Link>
           <nav className="hidden gap-6 md:flex">
             {[
