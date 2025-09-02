@@ -1,16 +1,36 @@
 import Layout from "@/components/Layout";
-import { ProgressBar } from "@/components/SkillCard";
 import { profileData, skills } from "@/utils/constants";
 
 function Badge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded border border-blue-300/50 bg-blue-50/50 px-2 py-0.5 text-[11px] text-blue-800 dark:border-blue-400/40 dark:bg-blue-400/10 dark:text-blue-200 print-card">
+    <span className="inline-flex items-center gap-1 rounded border border-blue-300/50 bg-blue-50/50 px-2 py-0.5 text-[11px] text-blue-800 dark:border-blue-400/40 dark:bg-blue-400/10 dark:text-blue-200 print-card">
       {children}
     </span>
   );
 }
 
+function ToolChip({ name }: { name: string }) {
+  const initial = name.charAt(0).toUpperCase();
+  return (
+    <span className="inline-flex items-center gap-2 rounded-md border border-slate-300/60 bg-white/60 px-2.5 py-1 text-xs text-slate-800 shadow-sm dark:border-violet-700/30 dark:bg-violet-900/10 dark:text-violet-100 print-card">
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" className="shrink-0">
+        <defs>
+          <linearGradient id={`g-${initial}`} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#6366f1" />
+            <stop offset="100%" stopColor="#22c55e" />
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#g-" />
+      </svg>
+      <span>{name}</span>
+    </span>
+  );
+}
+
 export default function Resume() {
+  const coreSkills = skills.map((s) => s.name);
+  const toolSet = Array.from(new Set(skills.flatMap((s) => s.tools)));
+
   return (
     <Layout>
       <div className="no-print mb-4 flex items-center justify-between">
@@ -64,26 +84,22 @@ export default function Resume() {
           </div>
         </section>
 
-        {/* Education */}
+        {/* Skills without bars */}
         <section className="avoid-break mt-6">
-          <h2 className="border-b-2 border-blue-500/60 pb-1 text-lg font-bold text-slate-900 dark:text-white print-muted">Education</h2>
-          <div className="mt-3 rounded-lg border border-slate-200/50 bg-slate-50/50 p-4 text-sm text-slate-800 dark:border-violet-700/30 dark:bg-violet-900/10 dark:text-violet-100/85 print-card print-muted">
-            Graduação e cursos focados em dados, ML e engenharia de software
+          <h2 className="border-b-2 border-blue-500/60 pb-1 text-lg font-bold text-slate-900 dark:text-white print-muted">Skills</h2>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {coreSkills.map((n) => (
+              <Badge key={n}>{n}</Badge>
+            ))}
           </div>
         </section>
 
-        {/* Skills */}
+        {/* Ferramentas as chips (ready for SVG logos) */}
         <section className="avoid-break mt-6">
-          <h2 className="border-b-2 border-blue-500/60 pb-1 text-lg font-bold text-slate-900 dark:text-white print-muted">Skills</h2>
-          <div className="mt-3 grid gap-3 sm:grid-cols-2">
-            {skills.map((s) => (
-              <div key={s.name} className="rounded-lg border border-slate-200/50 bg-slate-50/50 p-3 dark:border-violet-700/30 dark:bg-violet-900/10 print-card">
-                <div className="mb-1 flex items-center justify-between text-sm">
-                  <span className="font-medium text-slate-900 dark:text-violet-100 print-muted">{s.name}</span>
-                  <span className="font-mono text-blue-700 dark:text-emerald-400 print-muted">{s.level}%</span>
-                </div>
-                <ProgressBar value={s.level} />
-              </div>
+          <h2 className="border-b-2 border-blue-500/60 pb-1 text-lg font-bold text-slate-900 dark:text-white print-muted">Ferramentas</h2>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {toolSet.map((t) => (
+              <ToolChip key={t} name={t} />
             ))}
           </div>
         </section>
