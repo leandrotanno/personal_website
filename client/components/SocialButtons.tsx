@@ -15,13 +15,13 @@ export default function SocialButtons() {
             key={idx}
             {...props}
             className={cn(
-              "group grid place-items-center size-10 rounded-lg border border-violet-700/50 bg-violet-900/20 text-violet-200/90 backdrop-blur-md transition",
+              "group grid place-items-center size-12 rounded-lg border border-violet-700/50 bg-violet-900/20 text-violet-200/90 backdrop-blur-md transition",
               "hover:border-violet-500/50 hover:shadow-[0_0_24px_rgba(168,85,247,0.45)]",
             )}
             aria-label={s.label}
             title={s.label}
           >
-            <s.icon className={cn("size-5 text-violet-300 transition-transform group-hover:scale-110")} />
+            <s.icon className={cn("size-6 text-violet-300 transition-transform group-hover:scale-110")} />
           </Btn>
         );
       })}
