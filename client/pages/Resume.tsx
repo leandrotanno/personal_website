@@ -20,7 +20,7 @@ function ToolChip({ name }: { name: string }) {
             <stop offset="100%" stopColor="#22c55e" />
           </linearGradient>
         </defs>
-        <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#g-" />
+        <rect x="2" y="2" width="20" height="20" rx="5" fill={`url(#g-${initial})`} />
       </svg>
       <span>{name}</span>
     </span>
