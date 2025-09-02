@@ -13,9 +13,10 @@ interface TerminalProps {
     maxLines?: number;
   };
   className?: string;
+  onComplete?: () => void;
 }
 
-export function Terminal({ commands, config, className }: TerminalProps) {
+export function Terminal({ commands, config, className, onComplete }: TerminalProps) {
   const cfg = {
     stepDelay: 1200,
     stepVariation: 800,
