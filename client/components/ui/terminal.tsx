@@ -44,6 +44,7 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
     let mounted = true;
     let idx = 0;
     const timers: number[] = [];
+    let doneCalled = false;
 
     const scheduleNext = (delay: number) => {
       timers.push(
@@ -60,6 +61,9 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
             const jitter = Math.random() * (cfg.stepVariation || 0);
             const after = next.startsWith("$") ? cfg.commandPause : base + jitter;
             scheduleNext(after);
+          } else if (!doneCalled) {
+            doneCalled = true;
+            onComplete?.();
           }
         }, delay),
       );
@@ -71,7 +75,7 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
       mounted = false;
       timers.forEach((t) => clearTimeout(t));
     };
-  }, [flatSequence, cfg.stepDelay, cfg.stepVariation, cfg.commandPause, cfg.startDelay, cfg.maxLines]);
+  }, [flatSequence, cfg.stepDelay, cfg.stepVariation, cfg.commandPause, cfg.startDelay, cfg.maxLines, onComplete]);
 
   useEffect(() => {
     const el = containerRef.current;
