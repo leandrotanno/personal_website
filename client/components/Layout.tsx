@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const loc = useLocation();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-violet-950 via-gray-900 to-black text-white">
+    <div className="min-h-screen bg-gradient-to-b from-violet-50 via-gray-50 to-white text-slate-900 dark:from-violet-950 dark:via-gray-900 dark:to-black dark:text-white">
       <div className="pointer-events-none fixed inset-0 -z-10 opacity-20 [background:radial-gradient(circle_at_center,rgba(109,40,217,0.25),transparent_45%),repeating-linear-gradient(0deg,rgba(168,85,247,0.15)_0px,rgba(168,85,247,0.15)_1px,transparent_1px,transparent_32px),repeating-linear-gradient(90deg,rgba(168,85,247,0.1)_0px,rgba(168,85,247,0.1)_1px,transparent_1px,transparent_32px)]" />
 
       <header className="fixed inset-x-0 top-0 z-30 border-b border-violet-700/30 bg-black/40 backdrop-blur-md no-print">
