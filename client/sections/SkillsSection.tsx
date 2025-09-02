@@ -1,5 +1,9 @@
 import { skills } from "@/utils/constants";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function SkillsSection() {
   return (
@@ -18,8 +22,15 @@ export default function SkillsSection() {
               </div>
             </TooltipTrigger>
             <TooltipContent className="max-w-xs text-violet-100">
-              <div className="text-[11px] uppercase tracking-wide text-violet-300/90">{s.category}</div>
-              <div className="mt-1 text-sm">Ferramentas: {Array.isArray((s as any).tools) ? (s as any).tools.join(", ") : ""}</div>
+              <div className="text-[11px] uppercase tracking-wide text-violet-300/90">
+                {s.category}
+              </div>
+              <div className="mt-1 text-sm">
+                Ferramentas:{" "}
+                {Array.isArray((s as any).tools)
+                  ? (s as any).tools.join(", ")
+                  : ""}
+              </div>
             </TooltipContent>
           </Tooltip>
         ))}

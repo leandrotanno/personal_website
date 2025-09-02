@@ -8,8 +8,13 @@ export default function AboutSection() {
         <p className="mt-3 text-violet-100/85">{profileData.bio}</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {metrics.map((m) => (
-            <div key={m.label} className="rounded-lg border border-violet-700/30 bg-violet-900/10 p-4 text-center">
-              <div className="text-2xl font-extrabold text-violet-100">{m.value}</div>
+            <div
+              key={m.label}
+              className="rounded-lg border border-violet-700/30 bg-violet-900/10 p-4 text-center"
+            >
+              <div className="text-2xl font-extrabold text-violet-100">
+                {m.value}
+              </div>
               <div className="text-sm text-violet-200/80">{m.label}</div>
             </div>
           ))}

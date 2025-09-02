@@ -24,14 +24,22 @@ export default function SkillCard({
   category?: string;
 }) {
   return (
-    <div className={cn("rounded-xl border border-violet-700/30 bg-violet-900/10 p-4")}> 
+    <div
+      className={cn(
+        "rounded-xl border border-violet-700/30 bg-violet-900/10 p-4",
+      )}
+    >
       <div className="flex items-center gap-3">
         <Icon className="size-5 text-violet-300" />
         <div>
           <div className="text-sm font-semibold text-violet-200">{name}</div>
-          {category && <div className="text-[11px] text-violet-100/70">{category}</div>}
+          {category && (
+            <div className="text-[11px] text-violet-100/70">{category}</div>
+          )}
         </div>
-        <div className="ml-auto text-sm text-emerald-400 font-mono">{level}%</div>
+        <div className="ml-auto text-sm text-emerald-400 font-mono">
+          {level}%
+        </div>
       </div>
       <div className="mt-3">
         <ProgressBar value={level} />

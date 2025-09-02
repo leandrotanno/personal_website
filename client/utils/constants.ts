@@ -1,4 +1,15 @@
-import { Github, Linkedin, Mail, FileText, Code, BarChart3, Brain, Database, TrendingUp, Zap } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  FileText,
+  Code,
+  BarChart3,
+  Brain,
+  Database,
+  TrendingUp,
+  Zap,
+} from "lucide-react";
 
 export const profileData = {
   name: "Leandro Tanno",
@@ -16,12 +27,48 @@ export const metrics = [
 ];
 
 export const skills = [
-  { name: "Python", level: 90, icon: Code, category: "Programming", tools: ["Pandas", "Scikit-learn", "NumPy", "Jupyter"] },
-  { name: "Web Analytics", level: 95, icon: BarChart3, category: "Analytics", tools: ["GA4", "GTM", "BigQuery", "Looker Studio"] },
-  { name: "Machine Learning", level: 75, icon: Brain, category: "AI/ML", tools: ["RandomForest", "XGBoost", "Pipelines", "CV"] },
-  { name: "SQL/Databases", level: 88, icon: Database, category: "Data", tools: ["Postgres", "BigQuery", "MySQL", "SQLite"] },
-  { name: "Data Visualization", level: 85, icon: TrendingUp, category: "Viz", tools: ["Matplotlib", "Seaborn", "D3.js", "Recharts"] },
-  { name: "Cloud/DevOps", level: 70, icon: Zap, category: "Infrastructure", tools: ["AWS", "Docker", "CI/CD", "Linux"] },
+  {
+    name: "Python",
+    level: 90,
+    icon: Code,
+    category: "Programming",
+    tools: ["Pandas", "Scikit-learn", "NumPy", "Jupyter"],
+  },
+  {
+    name: "Web Analytics",
+    level: 95,
+    icon: BarChart3,
+    category: "Analytics",
+    tools: ["GA4", "GTM", "BigQuery", "Looker Studio"],
+  },
+  {
+    name: "Machine Learning",
+    level: 75,
+    icon: Brain,
+    category: "AI/ML",
+    tools: ["RandomForest", "XGBoost", "Pipelines", "CV"],
+  },
+  {
+    name: "SQL/Databases",
+    level: 88,
+    icon: Database,
+    category: "Data",
+    tools: ["Postgres", "BigQuery", "MySQL", "SQLite"],
+  },
+  {
+    name: "Data Visualization",
+    level: 85,
+    icon: TrendingUp,
+    category: "Viz",
+    tools: ["Matplotlib", "Seaborn", "D3.js", "Recharts"],
+  },
+  {
+    name: "Cloud/DevOps",
+    level: 70,
+    icon: Zap,
+    category: "Infrastructure",
+    tools: ["AWS", "Docker", "CI/CD", "Linux"],
+  },
 ];
 
 export const projects = [
@@ -55,10 +102,31 @@ export const projects = [
 ];
 
 export const socialLinks = [
-  { href: "https://github.com/leandrotanno", icon: Github, label: "GitHub", external: true },
-  { href: "https://linkedin.com/in/tanno-leandro", icon: Linkedin, label: "LinkedIn", external: true },
-  { href: "mailto:falae@tanno.online", icon: Mail, label: "Email", external: false },
-  { href: "/resume", icon: FileText, label: "Currículo", external: false, isCV: true },
+  {
+    href: "https://github.com/leandrotanno",
+    icon: Github,
+    label: "GitHub",
+    external: true,
+  },
+  {
+    href: "https://linkedin.com/in/tanno-leandro",
+    icon: Linkedin,
+    label: "LinkedIn",
+    external: true,
+  },
+  {
+    href: "mailto:falae@tanno.online",
+    icon: Mail,
+    label: "Email",
+    external: false,
+  },
+  {
+    href: "/resume",
+    icon: FileText,
+    label: "Currículo",
+    external: false,
+    isCV: true,
+  },
 ];
 
 export type TerminalCommand = { command: string; steps: string[] };
@@ -104,7 +172,8 @@ export const terminalCommands: TerminalCommand[] = [
     ],
   },
   {
-    command: "git add . && git commit -m \"feat: titanic: add LR pipeline, report and model\"",
+    command:
+      'git add . && git commit -m "feat: titanic: add LR pipeline, report and model"',
     steps: [
       "[main 8a3c1f2] feat: titanic: add LR pipeline, report and model",
       "6 files changed, 312 insertions(+), 18 deletions(-)",

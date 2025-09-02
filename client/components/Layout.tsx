@@ -6,7 +6,9 @@ import { LogoText } from "@/components/ui/logo";
 
 function useTheme() {
   const [theme, setTheme] = useState<string>(() =>
-    typeof window !== "undefined" ? (localStorage.getItem("theme") || "dark") : "dark",
+    typeof window !== "undefined"
+      ? localStorage.getItem("theme") || "dark"
+      : "dark",
   );
   useEffect(() => {
     const root = document.documentElement;
@@ -45,7 +47,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 #{item.label}
               </a>
             ))}
-            <NavLink to="/resume" className="text-sm text-emerald-400 hover:text-emerald-300">
+            <NavLink
+              to="/resume"
+              className="text-sm text-emerald-400 hover:text-emerald-300"
+            >
               currículo
             </NavLink>
           </nav>
@@ -54,7 +59,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="rounded-md border border-violet-700/40 bg-violet-900/20 p-2 text-violet-200 hover:border-violet-500/50"
           >
-            {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
+            {theme === "dark" ? (
+              <Sun className="size-4" />
+            ) : (
+              <Moon className="size-4" />
+            )}
           </button>
         </div>
       </header>
@@ -63,7 +72,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <footer className="border-t border-violet-300/40 bg-white/50 py-6 dark:border-violet-700/30 dark:bg-black/30 no-print">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4">
-          <span className="text-xs text-violet-200/80">© {new Date().getFullYear()} tanno.online</span>
+          <span className="text-xs text-violet-200/80">
+            © {new Date().getFullYear()} tanno.online
+          </span>
           <SocialButtons />
         </div>
       </footer>

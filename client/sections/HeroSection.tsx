@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { Terminal } from "@/components/ui/terminal";
-import { profileData, terminalCommands, terminalConfig } from "@/utils/constants";
+import {
+  profileData,
+  terminalCommands,
+  terminalConfig,
+} from "@/utils/constants";
 import DashboardViz from "@/components/DashboardViz";
 
 function useTyping(text: string, speed = 45) {
@@ -30,7 +34,9 @@ export default function HeroSection() {
         </h1>
         <p className="mt-3 text-lg text-violet-100/90">{profileData.title}</p>
         <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-violet-200/80">
-          <span className="rounded-md border border-violet-700/40 bg-violet-900/20 px-2 py-1">{profileData.location}</span>
+          <span className="rounded-md border border-violet-700/40 bg-violet-900/20 px-2 py-1">
+            {profileData.location}
+          </span>
           <span className="rounded-md border border-emerald-700/40 bg-emerald-900/10 px-2 py-1 text-emerald-300">
             {profileData.availability}
           </span>
@@ -53,14 +59,20 @@ export default function HeroSection() {
               <DashboardViz />
             </div>
           ) : (
-            <section aria-label="Dashboard carregando" className="rounded-2xl border border-violet-700/30 bg-black/20 p-5">
+            <section
+              aria-label="Dashboard carregando"
+              className="rounded-2xl border border-violet-700/30 bg-black/20 p-5"
+            >
               <div className="mb-3 flex items-center justify-between">
                 <div className="h-3 w-40 animate-pulse rounded bg-violet-800/30" />
                 <div className="h-2 w-28 animate-pulse rounded bg-violet-800/20" />
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+                  <div
+                    key={i}
+                    className="rounded-xl border border-violet-700/30 bg-black/10 p-2"
+                  >
                     <div className="mb-1 h-3 w-40 animate-pulse rounded bg-violet-800/30" />
                     <div className="h-32 animate-pulse rounded-md bg-violet-800/20" />
                   </div>

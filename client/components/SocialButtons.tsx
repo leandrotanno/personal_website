@@ -21,7 +21,11 @@ export default function SocialButtons() {
             aria-label={s.label}
             title={s.label}
           >
-            <s.icon className={cn("size-6 text-violet-300 transition-transform group-hover:scale-110")} />
+            <s.icon
+              className={cn(
+                "size-6 text-violet-300 transition-transform group-hover:scale-110",
+              )}
+            />
           </Btn>
         );
       })}

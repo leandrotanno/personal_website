@@ -14,8 +14,32 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", "Helvetica Neue", "Arial", "Apple Color Emoji", "Segoe UI Emoji"],
-        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+        sans: [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Ubuntu",
+          "Cantarell",
+          "Noto Sans",
+          "Helvetica Neue",
+          "Arial",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+        ],
+        mono: [
+          "JetBrains Mono",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "Liberation Mono",
+          "Courier New",
+          "monospace",
+        ],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -68,7 +92,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        float: { from: { transform: "translateY(0px)" }, to: { transform: "translateY(-6px)" } },
+        float: {
+          from: { transform: "translateY(0px)" },
+          to: { transform: "translateY(-6px)" },
+        },
         "accordion-down": {
           from: {
             height: "0",

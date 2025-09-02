@@ -9,7 +9,13 @@ interface ProjectCardProps {
   repoUrl?: string;
 }
 
-export default function ProjectCard({ title, description, tech, demoUrl, repoUrl }: ProjectCardProps) {
+export default function ProjectCard({
+  title,
+  description,
+  tech,
+  demoUrl,
+  repoUrl,
+}: ProjectCardProps) {
   return (
     <div
       className={cn(

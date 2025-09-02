@@ -3,11 +3,13 @@
 This document explains the structure of the project, the key files, and all changes made in this session.
 
 ## Top-level
+
 - index.html — App entry HTML; sets title, meta description, and favicon.
 - package.json — scripts (dev/build/server), pnpm as package manager.
 - tailwind.config.ts, postcss.config.js, client/global.css — styling and print rules.
 
 ## Client application (client/)
+
 - App.tsx — Router + providers; routes: `/` and `/resume`.
 - components/Layout.tsx — Global layout: header/nav, theme toggle, footer, decorative background.
   - Print: header/background/footer are hidden via `.no-print`. Background div also has `no-print`.
@@ -34,6 +36,7 @@ This document explains the structure of the project, the key files, and all chan
   - Print helpers: `.print-card`, `.print-no-border`, `.avoid-break`, `print-muted`.
 
 ## Utilities (client/utils)
+
 - utils/constants.ts — Core data/config.
   - profileData, skills (with tools), projects, social links.
   - terminalCommands: includes the Titanic training, jupyter, git commit, etc.
@@ -42,6 +45,7 @@ This document explains the structure of the project, the key files, and all chan
     - terminalHeight: 440px, maxLines: 18.
 
 ## Key Changes (this session)
+
 1. Hero + Dashboard
    - Consolidated 6 charts into a single dashboard section (right column), compact grid 3x2.
    - Aligned terminal and dashboard in the same row; terminal height tuned for visual balance.
@@ -61,6 +65,7 @@ This document explains the structure of the project, the key files, and all chan
    - Added favicon (public/favicon.svg) and Logo/LogoText components; header updated.
 
 ## Where to edit what
+
 - Terminal speed/height: client/utils/constants.ts (terminalConfig).
 - Terminal sequence: client/utils/constants.ts (terminalCommands). HeroSection restricts it to one command.
 - Reveal timing: client/sections/HeroSection.tsx (`onComplete` setTimeout).
@@ -70,5 +75,6 @@ This document explains the structure of the project, the key files, and all chan
 - Header/nav/theme: client/components/Layout.tsx.
 
 ## Notes
+
 - Package manager: pnpm (see package.json).
 - Deployment: use Netlify/Vercel MCP if needed (not configured here).

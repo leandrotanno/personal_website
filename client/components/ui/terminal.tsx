@@ -16,7 +16,12 @@ interface TerminalProps {
   onComplete?: () => void;
 }
 
-export function Terminal({ commands, config, className, onComplete }: TerminalProps) {
+export function Terminal({
+  commands,
+  config,
+  className,
+  onComplete,
+}: TerminalProps) {
   const cfg = {
     stepDelay: 1200,
     stepVariation: 800,
@@ -72,7 +77,9 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
             });
             const base = cfg.stepDelay;
             const jitter = Math.random() * (cfg.stepVariation || 0);
-            const after = next.startsWith("$") ? cfg.commandPause : base + jitter;
+            const after = next.startsWith("$")
+              ? cfg.commandPause
+              : base + jitter;
             scheduleNext(after);
           } else if (!doneCalled) {
             doneCalled = true;
@@ -94,7 +101,15 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
       if (raf1) cancelAnimationFrame(raf1);
       if (raf2) cancelAnimationFrame(raf2);
     };
-  }, [flatSequence, cfg.stepDelay, cfg.stepVariation, cfg.commandPause, cfg.startDelay, cfg.maxLines, onComplete]);
+  }, [
+    flatSequence,
+    cfg.stepDelay,
+    cfg.stepVariation,
+    cfg.commandPause,
+    cfg.startDelay,
+    cfg.maxLines,
+    onComplete,
+  ]);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -114,14 +129,18 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
         <span className="size-2.5 rounded-full bg-red-500/70" />
         <span className="size-2.5 rounded-full bg-yellow-500/70" />
         <span className="size-2.5 rounded-full bg-emerald-500/70" />
-        <span className="ml-auto text-[10px] text-violet-200/70 font-mono">tanno@analytics • bash</span>
+        <span className="ml-auto text-[10px] text-violet-200/70 font-mono">
+          tanno@analytics • bash
+        </span>
       </div>
       <div
         ref={containerRef}
         className="h-[calc(100%-32px)] overflow-auto px-3 py-2 font-mono text-[13px] leading-relaxed text-violet-100/90"
       >
         {lines.map((l, i) => (
-          <div key={i} className={cn(l.startsWith("$") && "text-violet-300")}>{l}</div>
+          <div key={i} className={cn(l.startsWith("$") && "text-violet-300")}>
+            {l}
+          </div>
         ))}
       </div>
     </div>
