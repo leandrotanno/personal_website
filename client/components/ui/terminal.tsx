@@ -45,6 +45,8 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
     let idx = 0;
     const timers: number[] = [];
     let doneCalled = false;
+    let raf1: number | null = null;
+    let raf2: number | null = null;
 
     const scheduleNext = (delay: number) => {
       timers.push(
@@ -69,11 +71,17 @@ export function Terminal({ commands, config, className, onComplete }: TerminalPr
       );
     };
 
-    scheduleNext(cfg.startDelay);
+    raf1 = window.requestAnimationFrame(() => {
+      raf2 = window.requestAnimationFrame(() => {
+        if (mounted) scheduleNext(cfg.startDelay);
+      });
+    });
 
     return () => {
       mounted = false;
       timers.forEach((t) => clearTimeout(t));
+      if (raf1) cancelAnimationFrame(raf1);
+      if (raf2) cancelAnimationFrame(raf2);
     };
   }, [flatSequence, cfg.stepDelay, cfg.stepVariation, cfg.commandPause, cfg.startDelay, cfg.maxLines, onComplete]);
 
