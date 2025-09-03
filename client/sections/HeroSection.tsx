@@ -32,12 +32,12 @@ export default function HeroSection() {
         <h1 className="bg-gradient-to-r from-violet-400 via-violet-300 to-emerald-300 bg-clip-text text-5xl font-extrabold text-transparent sm:text-6xl">
           {typed}
         </h1>
-        <p className="mt-3 text-lg text-violet-100/90">{profileData.title}</p>
+        <p className="mt-3 text-lg text-slate-600 dark:text-violet-100/90">{profileData.title}</p>
         <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-violet-200/80">
-          <span className="rounded-md border border-violet-700/40 bg-violet-900/20 px-2 py-1">
+          <span className="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-slate-700 dark:border-violet-700/40 dark:bg-violet-900/20 dark:text-inherit">
             {profileData.location}
           </span>
-          <span className="rounded-md border border-emerald-700/40 bg-emerald-900/10 px-2 py-1 text-emerald-300">
+          <span className="rounded-md border border-emerald-300 bg-emerald-50 px-2 py-1 text-emerald-700 dark:border-emerald-700/40 dark:bg-emerald-900/10 dark:text-emerald-300">
             {profileData.availability}
           </span>
         </div>
@@ -61,20 +61,20 @@ export default function HeroSection() {
           ) : (
             <section
               aria-label="Dashboard carregando"
-              className="rounded-2xl border border-violet-700/30 bg-black/20 p-5"
+              className="rounded-2xl border p-5 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/20"
             >
               <div className="mb-3 flex items-center justify-between">
-                <div className="h-3 w-40 animate-pulse rounded bg-violet-800/30" />
-                <div className="h-2 w-28 animate-pulse rounded bg-violet-800/20" />
+                <div className="h-3 w-40 animate-pulse rounded bg-slate-200 dark:bg-violet-800/30" />
+                <div className="h-2 w-28 animate-pulse rounded bg-slate-200 dark:bg-violet-800/20" />
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <div
                     key={i}
-                    className="rounded-xl border border-violet-700/30 bg-black/10 p-2"
+                    className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10"
                   >
-                    <div className="mb-1 h-3 w-40 animate-pulse rounded bg-violet-800/30" />
-                    <div className="h-32 animate-pulse rounded-md bg-violet-800/20" />
+                    <div className="mb-1 h-3 w-40 animate-pulse rounded bg-slate-200 dark:bg-violet-800/30" />
+                    <div className="h-32 animate-pulse rounded-md bg-slate-100 dark:bg-violet-800/20" />
                   </div>
                 ))}
               </div>
