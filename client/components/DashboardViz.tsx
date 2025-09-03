@@ -74,18 +74,16 @@ const COLORS = [
   "#22d3ee",
 ];
 
-const tooltipStyle = {
-  background: "rgba(38, 16, 72, 0.9)",
-  border: "1px solid rgba(139,92,246,.4)",
-  color: "#e9d5ff",
-  fontSize: "11px",
-} as const;
+const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+const tooltipStyle = (isDark
+  ? { background: "rgba(38, 16, 72, 0.92)", border: "1px solid rgba(139,92,246,.4)", color: "#e9d5ff", fontSize: "11px" }
+  : { background: "#ffffff", border: "1px solid #e5e7eb", color: "#334155", fontSize: "11px" }) as const;
 
 export default function DashboardViz() {
   return (
     <section
       aria-label="Dashboard Titanic"
-      className="rounded-2xl border border-violet-700/30 bg-black/20 p-5"
+      className="rounded-2xl border p-5 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/20"
     >
       <div className="mb-3 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-violet-200">
@@ -98,7 +96,7 @@ export default function DashboardViz() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {/* 1. Feature Importance (Bar) */}
-        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+        <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">
             Importância de features
           </div>
@@ -128,7 +126,7 @@ export default function DashboardViz() {
         </div>
 
         {/* 2. Survival by sex (Pie) */}
-        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+        <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">
             Sobreviventes por sexo
           </div>
@@ -147,7 +145,7 @@ export default function DashboardViz() {
                     <Cell key={i} fill={COLORS[i % COLORS.length]} />
                   ))}
                 </Pie>
-                <Legend wrapperStyle={{ fontSize: "9px", color: "#e9d5ff" }} />
+                <Legend wrapperStyle={{ fontSize: "9px", color: isDark ? "#e9d5ff" : "#334155" }} />
                 <RTooltip
                   cursor={{ fill: "transparent", stroke: "transparent" }}
                   contentStyle={tooltipStyle}
@@ -160,7 +158,7 @@ export default function DashboardViz() {
         </div>
 
         {/* 3. Survival by class (Bar) */}
-        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+        <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">
             Sobreviventes por classe
           </div>
@@ -186,7 +184,7 @@ export default function DashboardViz() {
         </div>
 
         {/* 4. Age distribution (Bar) */}
-        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+        <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">
             Distribuição por idade
           </div>
@@ -212,7 +210,7 @@ export default function DashboardViz() {
         </div>
 
         {/* 5. Survival share by embarked (Pie) */}
-        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+        <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">
             Sobreviventes por porto de embarque
           </div>
@@ -231,7 +229,7 @@ export default function DashboardViz() {
                     <Cell key={i} fill={COLORS[(i + 2) % COLORS.length]} />
                   ))}
                 </Pie>
-                <Legend wrapperStyle={{ fontSize: "9px", color: "#e9d5ff" }} />
+                <Legend wrapperStyle={{ fontSize: "9px", color: isDark ? "#e9d5ff" : "#334155" }} />
                 <RTooltip
                   cursor={{ fill: "transparent", stroke: "transparent" }}
                   contentStyle={tooltipStyle}
@@ -244,7 +242,7 @@ export default function DashboardViz() {
         </div>
 
         {/* 6. Fare distribution (Area) */}
-        <div className="rounded-xl border border-violet-700/30 bg-black/10 p-2">
+        <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
           <div className="mb-1 text-[11px] font-semibold text-violet-200">
             Distribuição de tarifas
           </div>
