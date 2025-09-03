@@ -70,7 +70,7 @@ export function LogoText({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <Logo size={24} />
-      <span className="font-mono text-sm text-violet-300">
+      <span className="font-mono text-sm text-slate-800 dark:text-violet-300">
         <span className="text-violet-400">$</span> tanno.online
       </span>
     </div>
