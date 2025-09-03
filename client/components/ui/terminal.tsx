@@ -120,25 +120,25 @@ export function Terminal({
   return (
     <div
       className={cn(
-        "rounded-lg border border-violet-700/30 bg-violet-900/20 backdrop-blur-sm shadow-[0_0_40px_rgba(109,40,217,0.15)]",
+        "rounded-lg border bg-white shadow-sm border-slate-200 dark:border-violet-700/30 dark:bg-violet-900/20 backdrop-blur-sm",
         className,
       )}
       style={{ height: cfg.terminalHeight }}
     >
-      <div className="flex items-center gap-2 px-3 py-2 border-b border-violet-700/30 bg-black/30">
+      <div className="flex items-center gap-2 px-3 py-2 border-b border-slate-200 bg-slate-50 dark:border-violet-700/30 dark:bg-black/30">
         <span className="size-2.5 rounded-full bg-red-500/70" />
         <span className="size-2.5 rounded-full bg-yellow-500/70" />
         <span className="size-2.5 rounded-full bg-emerald-500/70" />
-        <span className="ml-auto text-[10px] text-violet-200/70 font-mono">
+        <span className="ml-auto text-[10px] text-slate-500 dark:text-violet-200/70 font-mono">
           tanno@analytics • bash
         </span>
       </div>
       <div
         ref={containerRef}
-        className="h-[calc(100%-32px)] overflow-auto px-3 py-2 font-mono text-[13px] leading-relaxed text-violet-100/90"
+        className="h-[calc(100%-32px)] overflow-auto px-3 py-2 font-mono text-[13px] leading-relaxed text-slate-800 dark:text-violet-100/90"
       >
         {lines.map((l, i) => (
-          <div key={i} className={cn(l.startsWith("$") && "text-violet-300")}>
+          <div key={i} className={cn(l.startsWith("$") && "text-blue-600 dark:text-violet-300")}>
             {l}
           </div>
         ))}
