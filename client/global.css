@@ -148,7 +148,7 @@ html {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-  body {
+  body, #root, main {
     background: #fff !important;
     color: #000 !important;
   }
