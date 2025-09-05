@@ -19,8 +19,8 @@ export default function ProjectCard({
   return (
     <div
       className={cn(
-        "group rounded-xl border p-5 bg-white border-slate-200 transition-all",
-        "hover:border-violet-500/50 hover:shadow-[0_0_24px_rgba(109,40,217,0.12)]",
+        "group rounded-xl border p-5 bg-white border-slate-200 dark:bg-black/10 dark:border-violet-700/30 transition-all",
+        "hover:border-violet-500/50 hover:shadow-[0_0_24px_rgba(109,40,217,0.12)] dark:hover:shadow-[0_0_24px_rgba(168,85,247,0.12)]",
       )}
     >
       <h3 className="text-lg font-semibold text-slate-900 dark:text-violet-200">{title}</h3>
