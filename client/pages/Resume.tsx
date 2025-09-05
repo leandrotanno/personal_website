@@ -60,7 +60,7 @@ export default function Resume() {
         {/* Header */}
         <header className="mb-5 grid gap-4 sm:grid-cols-[200px_1fr_1fr]">
           <div className="flex flex-col items-center justify-center">
-            <div className="size-40 rounded-full border border-blue-300/60 bg-gradient-to-br from-blue-200/60 to-emerald-200/40 dark:from-violet-700/40 dark:to-emerald-600/30 print-card" />
+            <div className="size-40 rounded-full border border-violet-300/60 bg-gradient-to-br from-violet-200/60 to-emerald-200/40 dark:from-violet-700/40 dark:to-emerald-600/30 print-card" />
           </div>
           <div className="rounded-lg border border-blue-300/40 bg-blue-50/30 p-2 print-card">
             <div className="text-xs text-slate-600 print-muted">
