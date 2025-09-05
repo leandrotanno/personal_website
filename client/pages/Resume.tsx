@@ -156,7 +156,7 @@ export default function Resume() {
           <div className="mt-3 grid gap-2 text-sm text-slate-800 dark:text-violet-100/85 print-muted">
             <div>{profileData.location}</div>
             <a
-              className="text-blue-700 hover:underline print-muted"
+              className="text-violet-700 hover:underline print-muted"
               href={`mailto:${profileData.email}`}
             >
               {profileData.email}
