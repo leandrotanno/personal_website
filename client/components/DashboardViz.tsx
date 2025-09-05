@@ -86,10 +86,10 @@ export default function DashboardViz() {
       className="rounded-2xl border p-5 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/20"
     >
       <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-violet-200">
+        <h3 className="text-sm font-semibold text-slate-800 dark:text-violet-200">
           Titanic — quick insights
         </h3>
-        <span className="text-[10px] text-violet-300/70">
+        <span className="text-[10px] text-slate-500 dark:text-violet-300/70">
           dados aproximados para demonstração
         </span>
       </div>
@@ -97,7 +97,7 @@ export default function DashboardViz() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {/* 1. Feature Importance (Bar) */}
         <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
-          <div className="mb-1 text-[11px] font-semibold text-violet-200">
+          <div className="mb-1 text-[11px] font-semibold text-slate-800 dark:text-violet-200">
             Importância de features
           </div>
           <div className="h-32">
@@ -127,7 +127,7 @@ export default function DashboardViz() {
 
         {/* 2. Survival by sex (Pie) */}
         <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
-          <div className="mb-1 text-[11px] font-semibold text-violet-200">
+          <div className="mb-1 text-[11px] font-semibold text-slate-800 dark:text-violet-200">
             Sobreviventes por sexo
           </div>
           <div className="h-32">
@@ -159,7 +159,7 @@ export default function DashboardViz() {
 
         {/* 3. Survival by class (Bar) */}
         <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
-          <div className="mb-1 text-[11px] font-semibold text-violet-200">
+          <div className="mb-1 text-[11px] font-semibold text-slate-800 dark:text-violet-200">
             Sobreviventes por classe
           </div>
           <div className="h-32">
@@ -185,7 +185,7 @@ export default function DashboardViz() {
 
         {/* 4. Age distribution (Bar) */}
         <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
-          <div className="mb-1 text-[11px] font-semibold text-violet-200">
+          <div className="mb-1 text-[11px] font-semibold text-slate-800 dark:text-violet-200">
             Distribuição por idade
           </div>
           <div className="h-32">
@@ -211,7 +211,7 @@ export default function DashboardViz() {
 
         {/* 5. Survival share by embarked (Pie) */}
         <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
-          <div className="mb-1 text-[11px] font-semibold text-violet-200">
+          <div className="mb-1 text-[11px] font-semibold text-slate-800 dark:text-violet-200">
             Sobreviventes por porto de embarque
           </div>
           <div className="h-32">
@@ -243,7 +243,7 @@ export default function DashboardViz() {
 
         {/* 6. Fare distribution (Area) */}
         <div className="rounded-xl border p-2 bg-white border-slate-200 dark:border-violet-700/30 dark:bg-black/10">
-          <div className="mb-1 text-[11px] font-semibold text-violet-200">
+          <div className="mb-1 text-[11px] font-semibold text-slate-800 dark:text-violet-200">
             Distribuição de tarifas
           </div>
           <div className="h-32">
