@@ -29,7 +29,7 @@ export default function HeroSection() {
     <section>
       {/* Linha 1: cabeçalho ocupa toda a largura */}
       <div className="mb-6">
-        <h1 className="bg-gradient-to-r from-violet-400 via-violet-300 to-emerald-300 bg-clip-text text-5xl font-extrabold text-transparent sm:text-6xl">
+        <h1 className="bg-gradient-to-r from-violet-700 via-violet-600 to-emerald-600 bg-clip-text text-5xl font-extrabold text-transparent sm:text-6xl">
           {typed}
         </h1>
         <p className="mt-3 text-lg text-slate-600 dark:text-violet-100/90">{profileData.title}</p>
