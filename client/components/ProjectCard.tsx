@@ -39,7 +39,7 @@ export default function ProjectCard({
         {demoUrl && (
           <a
             href={demoUrl}
-            className="inline-flex items-center gap-1 text-sm text-blue-300 hover:text-blue-200"
+            className="inline-flex items-center gap-1 text-sm text-slate-700 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-200"
           >
             <ExternalLink className="size-4" /> Demo
           </a>
