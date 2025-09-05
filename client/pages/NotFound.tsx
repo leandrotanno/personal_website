@@ -16,8 +16,8 @@ const NotFound = () => {
     <Layout>
       <div className="flex min-h-[60vh] items-center justify-center">
         <div className="text-center">
-          <h1 className="mb-2 text-5xl font-extrabold text-violet-200">404</h1>
-          <p className="mb-4 text-violet-100/80">Página não encontrada</p>
+          <h1 className="mb-2 text-5xl font-extrabold text-slate-900 dark:text-violet-200">404</h1>
+          <p className="mb-4 text-slate-700 dark:text-violet-100/80">Página não encontrada</p>
           <a
             href="/"
             className="underline text-emerald-400 hover:text-emerald-300"
