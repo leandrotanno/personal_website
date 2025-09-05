@@ -42,14 +42,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm text-violet-200/80 hover:text-violet-100"
+                className="text-sm text-slate-700 hover:text-violet-700 dark:text-violet-200"
               >
                 #{item.label}
               </a>
             ))}
             <NavLink
               to="/resume"
-              className="text-sm text-emerald-400 hover:text-emerald-300"
+              className="text-sm text-emerald-600 hover:text-emerald-500 dark:text-emerald-300"
             >
               currículo
             </NavLink>
@@ -57,7 +57,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <button
             aria-label="Toggle theme"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="rounded-md border border-violet-700/40 bg-violet-900/20 p-2 text-violet-200 hover:border-violet-500/50"
+            className="rounded-md border border-slate-200 bg-white/60 p-2 text-slate-700 hover:border-slate-300 dark:border-violet-700/40 dark:bg-violet-900/20 dark:text-violet-200"
           >
             {theme === "dark" ? (
               <Sun className="size-4" />
@@ -72,7 +72,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <footer className="border-t border-slate-200 bg-white/80 py-6 dark:border-violet-700/30 dark:bg-black/30 no-print">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4">
-          <span className="text-xs text-violet-200/80">
+          <span className="text-xs text-slate-500 dark:text-violet-200/80">
             © {new Date().getFullYear()} tanno.online
           </span>
           <SocialButtons />
