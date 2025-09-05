@@ -56,7 +56,7 @@ export default function Resume() {
         </button>
       </div>
 
-      <article className="mx-auto max-w-3xl rounded-xl border border-blue-200/40 bg-white/5 p-6 backdrop-blur print-card print-no-border">
+      <article className="mx-auto max-w-3xl rounded-xl border border-violet-200/30 bg-white/5 p-6 backdrop-blur print-card print-no-border">
         {/* Header */}
         <header className="mb-5 grid gap-4 sm:grid-cols-[200px_1fr_1fr]">
           <div className="flex flex-col items-center justify-center">
