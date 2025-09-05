@@ -47,7 +47,7 @@ export default function ProjectCard({
         {repoUrl && (
           <a
             href={repoUrl}
-            className="inline-flex items-center gap-1 text-sm text-violet-300 hover:text-violet-200"
+            className="inline-flex items-center gap-1 text-sm text-slate-700 dark:text-violet-300 hover:text-violet-200"
           >
             <Github className="size-4" /> Repo
           </a>
