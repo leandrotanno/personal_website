@@ -62,7 +62,7 @@ export default function Resume() {
           <div className="flex flex-col items-center justify-center">
             <div className="size-40 rounded-full border border-violet-300/60 bg-gradient-to-br from-violet-200/60 to-emerald-200/40 dark:from-violet-700/40 dark:to-emerald-600/30 print-card" />
           </div>
-          <div className="rounded-lg border border-blue-300/40 bg-blue-50/30 p-2 print-card">
+          <div className="rounded-lg border border-violet-300/40 bg-violet-50/30 p-2 print-card">
             <div className="text-xs text-slate-600 print-muted">
               Hello, my name is
             </div>
@@ -73,7 +73,7 @@ export default function Resume() {
               {profileData.bio}
             </p>
           </div>
-          <div className="rounded-lg border border-blue-300/40 bg-blue-50/30 p-2 print-card">
+          <div className="rounded-lg border border-violet-300/40 bg-violet-50/30 p-2 print-card">
             <div className="text-xs text-slate-600 print-muted">
               Currently, I work as a
             </div>
