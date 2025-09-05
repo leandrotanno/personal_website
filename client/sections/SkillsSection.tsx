@@ -18,7 +18,7 @@ export default function SkillsSection() {
                 title={s.category}
               >
                 <s.icon className="mb-2 size-7 text-slate-700 dark:text-violet-300 transition-transform group-hover:scale-110" />
-                <span className="text-sm text-violet-100/90">{s.name}</span>
+                <span className="text-sm text-slate-800 dark:text-violet-100/90">{s.name}</span>
               </div>
             </TooltipTrigger>
             <TooltipContent className="max-w-xs text-slate-700 dark:text-violet-100">
