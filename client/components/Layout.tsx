@@ -60,9 +60,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             className="rounded-md border border-slate-200 bg-white/60 p-2 text-slate-700 hover:border-slate-300 dark:border-violet-700/40 dark:bg-violet-900/20 dark:text-violet-200"
           >
             {theme === "dark" ? (
-              <Sun className="size-4" />
-            ) : (
               <Moon className="size-4" />
+            ) : (
+              <Sun className="size-4" />
             )}
           </button>
         </div>
