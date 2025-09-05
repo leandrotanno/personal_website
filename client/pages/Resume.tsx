@@ -88,7 +88,7 @@ export default function Resume() {
 
         {/* Experience */}
         <section className="avoid-break">
-          <h2 className="border-b-2 border-blue-500/60 pb-1 text-lg font-bold text-slate-900 dark:text-white print-muted">
+          <h2 className="border-b-2 border-violet-600/60 pb-1 text-lg font-bold text-violet-700 dark:text-violet-200 print-muted">
             Experience
           </h2>
           <div className="mt-3 space-y-4">
@@ -126,7 +126,7 @@ export default function Resume() {
 
         {/* Skills without bars */}
         <section className="avoid-break mt-6">
-          <h2 className="border-b-2 border-blue-500/60 pb-1 text-lg font-bold text-slate-900 dark:text-white print-muted">
+          <h2 className="border-b-2 border-violet-600/60 pb-1 text-lg font-bold text-violet-700 dark:text-violet-200 print-muted">
             Skills
           </h2>
           <div className="mt-3 flex flex-wrap gap-2">
@@ -138,7 +138,7 @@ export default function Resume() {
 
         {/* Ferramentas as chips (ready for SVG logos) */}
         <section className="avoid-break mt-6">
-          <h2 className="border-b-2 border-blue-500/60 pb-1 text-lg font-bold text-slate-900 dark:text-white print-muted">
+          <h2 className="border-b-2 border-violet-600/60 pb-1 text-lg font-bold text-violet-700 dark:text-violet-200 print-muted">
             Ferramentas
           </h2>
           <div className="mt-3 flex flex-wrap gap-2">
@@ -150,7 +150,7 @@ export default function Resume() {
 
         {/* Contact */}
         <section className="avoid-break mt-6">
-          <h2 className="border-b-2 border-blue-500/60 pb-1 text-lg font-bold text-slate-900 dark:text-white print-muted">
+          <h2 className="border-b-2 border-violet-600/60 pb-1 text-lg font-bold text-violet-700 dark:text-violet-200 print-muted">
             Contact
           </h2>
           <div className="mt-3 grid gap-2 text-sm text-slate-800 dark:text-violet-100/85 print-muted">
