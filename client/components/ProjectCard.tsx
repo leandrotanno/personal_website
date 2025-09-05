@@ -23,8 +23,12 @@ export default function ProjectCard({
         "hover:border-violet-500/50 hover:shadow-[0_0_24px_rgba(109,40,217,0.12)] dark:hover:shadow-[0_0_24px_rgba(168,85,247,0.12)]",
       )}
     >
-      <h3 className="text-lg font-semibold text-slate-900 dark:text-violet-200">{title}</h3>
-      <p className="mt-2 text-sm text-slate-700 dark:text-violet-100/80">{description}</p>
+      <h3 className="text-lg font-semibold text-slate-900 dark:text-violet-200">
+        {title}
+      </h3>
+      <p className="mt-2 text-sm text-slate-700 dark:text-violet-100/80">
+        {description}
+      </p>
       <div className="mt-3 flex flex-wrap gap-2">
         {tech.map((t) => (
           <span

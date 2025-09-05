@@ -47,7 +47,9 @@ export default function Resume() {
   return (
     <Layout>
       <div className="no-print mb-4 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-violet-200">Currículo</h1>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-violet-200">
+          Currículo
+        </h1>
         <button
           onClick={() => window.print()}
           className="rounded-md border border-slate-200 bg-white/60 px-3 py-2 text-sm text-slate-800 hover:border-slate-300"
