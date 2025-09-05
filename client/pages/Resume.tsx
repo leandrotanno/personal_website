@@ -50,7 +50,7 @@ export default function Resume() {
         <h1 className="text-2xl font-bold text-violet-200">Currículo</h1>
         <button
           onClick={() => window.print()}
-          className="rounded-md border border-violet-700/40 bg-violet-900/20 px-3 py-2 text-sm text-violet-100 hover:border-violet-500/50"
+          className="rounded-md border border-slate-200 bg-white/60 px-3 py-2 text-sm text-slate-800 hover:border-slate-300"
         >
           Imprimir / PDF
         </button>
