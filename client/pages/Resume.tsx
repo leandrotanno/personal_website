@@ -3,7 +3,7 @@ import { profileData, skills } from "@/utils/constants";
 
 function Badge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded border border-blue-300/50 bg-blue-50/50 px-2 py-0.5 text-[11px] text-blue-800 dark:border-blue-400/40 dark:bg-blue-400/10 dark:text-blue-200 print-card">
+    <span className="inline-flex items-center gap-1 rounded border border-violet-600/30 bg-violet-50/60 px-2 py-0.5 text-[11px] text-violet-800 dark:border-violet-400/40 dark:bg-violet-900/10 dark:text-violet-200 print-card">
       {children}
     </span>
   );
