@@ -19,17 +19,17 @@ export default function ProjectCard({
   return (
     <div
       className={cn(
-        "group rounded-xl border border-violet-700/30 bg-black/20 p-5 transition-all",
-        "hover:border-violet-500/50 hover:shadow-[0_0_40px_rgba(109,40,217,0.35)]",
+        "group rounded-xl border p-5 bg-white border-slate-200 transition-all",
+        "hover:border-violet-500/50 hover:shadow-[0_0_24px_rgba(109,40,217,0.12)]",
       )}
     >
-      <h3 className="text-lg font-semibold text-violet-200">{title}</h3>
-      <p className="mt-2 text-sm text-violet-100/80">{description}</p>
+      <h3 className="text-lg font-semibold text-slate-900 dark:text-violet-200">{title}</h3>
+      <p className="mt-2 text-sm text-slate-700 dark:text-violet-100/80">{description}</p>
       <div className="mt-3 flex flex-wrap gap-2">
         {tech.map((t) => (
           <span
             key={t}
-            className="rounded-md border border-violet-700/40 bg-violet-900/30 px-2 py-1 text-[11px] text-violet-200"
+            className="rounded-md border border-slate-200 bg-white/60 px-2 py-1 text-[11px] text-slate-700 dark:border-violet-700/40 dark:bg-violet-900/30 dark:text-violet-200"
           >
             {t}
           </span>
