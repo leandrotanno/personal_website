@@ -35,6 +35,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <nav className="hidden gap-6 md:flex">
             {[
               { href: "/#sobre", label: "sobre" },
+              { href: "/#sobre-mim", label: "sobre-mim" },
               { href: "/#projetos", label: "projetos" },
               { href: "/#skills", label: "skills" },
               { href: "/#contato", label: "contato" },
