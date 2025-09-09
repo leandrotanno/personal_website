@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import HeroSection from "@/sections/HeroSection";
 import AboutSection from "@/sections/AboutSection";
+import PersonalSection from "@/sections/PersonalSection";
 import ProjectsSection from "@/sections/ProjectsSection";
 import SkillsSection from "@/sections/SkillsSection";
 import ContactSection from "@/sections/ContactSection";
