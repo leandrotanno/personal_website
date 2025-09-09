@@ -1,7 +1,6 @@
 import Layout from "@/components/Layout";
 import HeroSection from "@/sections/HeroSection";
 import AboutSection from "@/sections/AboutSection";
-import PersonalSection from "@/sections/PersonalSection";
 import ProjectsSection from "@/sections/ProjectsSection";
 import SkillsSection from "@/sections/SkillsSection";
 import ContactSection from "@/sections/ContactSection";
@@ -11,10 +10,9 @@ export default function Index() {
   return (
     <Layout>
       <HeroSection />
-      <PersonalSection />
-      {sectionConfig.showAboutSection && <AboutSection />}
       {sectionConfig.showProjectsSection && <ProjectsSection />}
       {sectionConfig.showSkillsSection && <SkillsSection />}
+      {sectionConfig.showAboutSection && <AboutSection />}
       {sectionConfig.showContactSection && <ContactSection />}
     </Layout>
   );
