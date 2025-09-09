@@ -11,6 +11,7 @@ export default function Index() {
   return (
     <Layout>
       <HeroSection />
+      <PersonalSection />
       {sectionConfig.showAboutSection && <AboutSection />}
       {sectionConfig.showProjectsSection && <ProjectsSection />}
       {sectionConfig.showSkillsSection && <SkillsSection />}
